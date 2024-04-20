@@ -78,8 +78,8 @@
                     <td>{{$item->satuan}}</td>
                     <td>{{$item->jumlah}}</td>
                     <td>{{$item->keterangan}}</td>
-                    <td>{{$item->departemen->nama}}</td>
-                    <td>{{$item->pengguna->nama}}</td>
+                    <td>{{$item->departemen == null ? '': $item->departemen->nama}}</td>
+                    <td>{{$item->pengguna == null ? '': $item->pengguna->nama}}</td>
                 </tr>
               @endforeach
           </tbody>

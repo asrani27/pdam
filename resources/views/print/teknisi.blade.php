@@ -69,7 +69,7 @@
                     <td>{{$item->nama}}</td>
                     <td>{{$item->alamat}}</td>
                     <td>{{$item->telp}}</td>
-                    <td>{{$item->departemen->nama}}</td>
+                    <td>{{$item->departemen == null ? '': $item->departemen->nama}}</td>
                 </tr>
               @endforeach
           </tbody>
