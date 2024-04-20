@@ -47,7 +47,7 @@
                             <td>{{$item->nama}}</td>
                             <td>{{$item->alamat}}</td>
                             <td>{{$item->telp}}</td>
-                            <td>{{$item->departemen->nama}}</td>
+                            <td>{{$item->departemen == null ? '': $item->departemen->nama}}</td>
                             <td>
                                 <a href="/pengguna/edit/{{$item->id}}" class="btn btn-xs bg-gradient-warning"><i class="fas fa-edit"></i></a>
                                 <a href="/pengguna/delete/{{$item->id}}" class="btn btn-xs bg-gradient-danger" onclick="return confirm('Yakin Menghapus Data Ini?');"><i class="fas fa-trash"></i></a>
