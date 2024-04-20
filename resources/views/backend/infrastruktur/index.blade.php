@@ -56,8 +56,8 @@
                             <td>{{$item->satuan}}</td>
                             <td>{{$item->jumlah}}</td>
                             <td>{{$item->keterangan}}</td>
-                            <td>{{$item->departemen->nama}}</td>
-                            <td>{{$item->pengguna->nama}}</td>
+                            <td>{{$item->departemen == null ? '': $item->departemen->nama}}</td>
+                            <td>{{$item->pengguna == null ? '': $item->pengguna->nama}}</td>
                             <td>
                                 <a href="/infrastruktur/edit/{{$item->id}}" class="btn btn-xs bg-gradient-warning"><i class="fas fa-edit"></i></a>
                                 <a href="/infrastruktur/delete/{{$item->id}}" class="btn btn-xs bg-gradient-danger" onclick="return confirm('Yakin Menghapus Data Ini?');"><i class="fas fa-trash"></i></a>
