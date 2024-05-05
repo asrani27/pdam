@@ -27,6 +27,34 @@
                 <form class="form-horizontal" method="POST" action="{{route('editjadwal',['id' => $data->id])}}">
                     @csrf
                   <div class="card-body">
+
+                    <div class="form-group row">
+                      <label for="inputEmail3" class="col-sm-2 col-form-label">Periode Jadwal</label>
+                      <div class="col-sm-2">
+                        <select name="bulan" class="form-control" required>
+                          <option value="">-pilih-</option>
+                          <option value="1" {{$data->bulan == '1' ? 'selected':''}}>Januari</option>
+                          <option value="2" {{$data->bulan == '2' ? 'selected':''}}>Februari</option>
+                          <option value="3" {{$data->bulan == '3' ? 'selected':''}}>Maret</option>
+                          <option value="4" {{$data->bulan == '4' ? 'selected':''}}>April</option>
+                          <option value="5" {{$data->bulan == '5' ? 'selected':''}}>Mei</option>
+                          <option value="6" {{$data->bulan == '6' ? 'selected':''}}>Juni</option>
+                          <option value="7" {{$data->bulan == '7' ? 'selected':''}}>Juli</option>
+                          <option value="8" {{$data->bulan == '8' ? 'selected':''}}>Agustus</option>
+                          <option value="9" {{$data->bulan == '9' ? 'selected':''}}>September</option>
+                          <option value="10" {{$data->bulan == '10' ? 'selected':''}}>Oktober</option>
+                          <option value="11" {{$data->bulan == '11' ? 'selected':''}}>November</option>
+                          <option value="12" {{$data->bulan == '12' ? 'selected':''}}>Desember</option>
+                        </select>
+                      </div>
+                      <div class="col-sm-2">
+                        <select name="tahun" class="form-control" required>
+                          <option value="">-pilih-</option>
+                          <option value="2024" {{$data->tahun == '2024' ? 'selected':''}}>2024</option>
+                          <option value="2025" {{$data->tahun == '2025' ? 'selected':''}}>2025</option>
+                        </select>
+                      </div>
+                    </div>
                     <div class="form-group row">
                       <label for="inputEmail3" class="col-sm-2 col-form-label">tanggal jadwal pemeliharaan</label>
                       <div class="col-sm-10">

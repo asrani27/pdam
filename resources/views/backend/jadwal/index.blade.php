@@ -48,7 +48,7 @@
                     @foreach ($data as $item)
                         <tr>
                             <td>{{$no++}}</td>
-                            <td>{{\Carbon\Carbon::parse($item->tanggal)->format('M Y')}}</td>
+                            <td>{{$item->bulan}} {{$item->tahun}}</td>
                             <td>{{$item->infrastruktur == null ? '':$item->infrastruktur->nama}}</td>
                             <td>{{$item->status}}</td>
                             <td>{{\Carbon\Carbon::parse($item->tanggal)->format('d M Y')}}</td>

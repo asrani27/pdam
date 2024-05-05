@@ -26,7 +26,36 @@
                 <!-- form start -->
                 <form class="form-horizontal" method="POST" action="{{route('jadwal')}}">
                     @csrf
+                    
                   <div class="card-body">
+
+                    <div class="form-group row">
+                      <label for="inputEmail3" class="col-sm-2 col-form-label">Periode Jadwal</label>
+                      <div class="col-sm-2">
+                        <select name="bulan" class="form-control" required>
+                          <option value="">-pilih-</option>
+                          <option value="1">Januari</option>
+                          <option value="2">Februari</option>
+                          <option value="3">Maret</option>
+                          <option value="4">April</option>
+                          <option value="5">Mei</option>
+                          <option value="6">Juni</option>
+                          <option value="7">Juli</option>
+                          <option value="8">Agustus</option>
+                          <option value="9">September</option>
+                          <option value="10">Oktober</option>
+                          <option value="11">November</option>
+                          <option value="12">Desember</option>
+                        </select>
+                      </div>
+                      <div class="col-sm-2">
+                        <select name="tahun" class="form-control" required>
+                          <option value="">-pilih-</option>
+                          <option value="2024">2024</option>
+                          <option value="2025">2025</option>
+                        </select>
+                      </div>
+                    </div>
                     <div class="form-group row">
                       <label for="inputEmail3" class="col-sm-2 col-form-label">Tanggal Pemeliharaan</label>
                       <div class="col-sm-10">
