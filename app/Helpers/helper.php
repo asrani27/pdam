@@ -6,7 +6,7 @@ function nama_bulan($bulan)
         $hasil = 'Januari';
     }
     if ($bulan == '2') {
-        $hasil = 'Februri';
+        $hasil = 'Februari';
     }
     if ($bulan == '3') {
         $hasil = 'Maret';
