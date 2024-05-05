@@ -53,9 +53,14 @@
           <thead>
           <tr style="background-color: silver">
             <th>No</th>
-            <th>Tanggal Jadwal</th>
-            <th>Infrastruktur</th>
+            <th>Periode Jadwal</th>
+            <th>Nama Perangkat</th>
             <th>Status</th>
+            <th>Tanggal Jadwal</th>
+            <th>Nomor Alat</th>
+            <th>Departemen</th>
+            <th>Lokasi</th>
+            <th>Pengguna</th>
           </tr>
           </thead>
           @php
@@ -65,9 +70,14 @@
               @foreach ($data as $item)
                 <tr>
                     <td>{{$no++}}</td>
-                    <td>{{\Carbon\Carbon::parse($item->tanggal)->format('d M Y')}}</td>
+                    <td>{{nama_bulan($item->bulan)}} {{$item->tahun}}</td>
                     <td>{{$item->infrastruktur == null ? '':$item->infrastruktur->nama}}</td>
                     <td>{{$item->status}}</td>
+                    <td>{{\Carbon\Carbon::parse($item->tanggal)->format('d M Y')}}</td>
+                    <td>{{$item->infrastruktur == null ? '':$item->infrastruktur->nomor_alat}}</td>
+                    <td>{{$item->infrastruktur == null ? '':$item->infrastruktur->departemen->nama}}</td>
+                    <td>{{$item->infrastruktur == null ? '':$item->infrastruktur->lokasi}}</td>
+                    <td>{{$item->infrastruktur == null ? '':$item->infrastruktur->pengguna->nama}}</td>
                 </tr>
               @endforeach
           </tbody>

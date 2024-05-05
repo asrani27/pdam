@@ -56,7 +56,7 @@
             <th>Nama</th>
             <th>Alamat</th>
             <th>Telp</th>
-            <th>Departemen</th>
+            <th>Rekanan</th>
           </tr>
           </thead>
           @php
@@ -69,7 +69,7 @@
                     <td>{{$item->nama}}</td>
                     <td>{{$item->alamat}}</td>
                     <td>{{$item->telp}}</td>
-                    <td>{{$item->departemen == null ? '': $item->departemen->nama}}</td>
+                    <td>{{$item->rekanan == null ? '': $item->rekanan->nama}}</td>
                 </tr>
               @endforeach
           </tbody>
