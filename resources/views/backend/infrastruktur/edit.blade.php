@@ -34,6 +34,12 @@
                       </div>
                     </div>
                     <div class="form-group row">
+                      <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor Alat</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" name="nomor_alat" value="{{$data->nomor_alat}}">
+                      </div>
+                    </div>
+                    <div class="form-group row">
                       <label for="inputEmail3" class="col-sm-2 col-form-label">Nama infrastruktur</label>
                       <div class="col-sm-10">
                         <input type="text" class="form-control" name="nama" value="{{$data->nama}}">
@@ -64,9 +70,9 @@
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label for="inputEmail3" class="col-sm-2 col-form-label">keterangan</label>
+                      <label for="inputEmail3" class="col-sm-2 col-form-label">lokasi</label>
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" name="keterangan" value="{{$data->keterangan}}">
+                        <input type="text" class="form-control" name="lokasi" value="{{$data->lokasi}}">
                       </div>
                     </div>
                     <div class="form-group row">
@@ -90,6 +96,19 @@
                               <option value="{{$item->id}}" {{$data->pengguna_id == $item->id ? 'selected':''}}>{{$item->nama}}</option>
                           @endforeach
                         </select>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="inputEmail3" class="col-sm-2 col-form-label">status</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" name="status" value="{{$data->status}}">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="inputEmail3" class="col-sm-2 col-form-label">tahun/Nomor PBL</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" name="tahun" value="{{$data->tahun}}">
                       </div>
                     </div>
                   </div>

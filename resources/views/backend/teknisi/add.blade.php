@@ -46,11 +46,11 @@
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label for="inputEmail3" class="col-sm-2 col-form-label">Departemen</label>
+                      <label for="inputEmail3" class="col-sm-2 col-form-label">Rekanan</label>
                       <div class="col-sm-10">
-                        <select name="departemen_id" class="form-control" required>
+                        <select name="rekanan_id" class="form-control" required>
                           <option value="">-pilih-</option>
-                          @foreach ($departemen as $item)
+                          @foreach ($rekanan as $item)
                               <option value="{{$item->id}}">{{$item->nama}}</option>
                           @endforeach
                         </select>

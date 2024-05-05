@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Departemen;
+use App\Rekanan;
 use App\Teknisi;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -17,8 +18,8 @@ class TeknisiController extends Controller
 
     public function add()
     {
-        $departemen = Departemen::get();
-        return view('backend.teknisi.add', compact('departemen'));
+        $rekanan = Rekanan::get();
+        return view('backend.teknisi.add', compact('rekanan'));
     }
 
     public function save(Request $req)
@@ -27,7 +28,7 @@ class TeknisiController extends Controller
         $s->nama = $req->nama;
         $s->alamat = $req->alamat;
         $s->telp = $req->telp;
-        $s->departemen_id = $req->departemen_id;
+        $s->rekanan_id = $req->rekanan_id;
         $s->save();
         Alert::success('Data Berhasil Di Simpan', 'Info Message');
         return redirect('/teknisi');
@@ -36,8 +37,8 @@ class TeknisiController extends Controller
     public function edit($id)
     {
         $data = Teknisi::find($id);
-        $departemen = Departemen::get();
-        return view('backend.teknisi.edit', compact('data', 'departemen'));
+        $rekanan = Rekanan::get();
+        return view('backend.teknisi.edit', compact('data', 'rekanan'));
     }
 
     public function update(Request $req, $id)
@@ -46,7 +47,7 @@ class TeknisiController extends Controller
         $s->nama = $req->nama;
         $s->alamat = $req->alamat;
         $s->telp = $req->telp;
-        $s->departemen_id = $req->departemen_id;
+        $s->rekanan_id = $req->rekanan_id;
         $s->save();
         Alert::success('Data Berhasil Di Update', 'Info Message');
         return redirect('/teknisi');

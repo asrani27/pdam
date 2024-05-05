@@ -33,7 +33,7 @@
                     <th>Nama teknisi</th>
                     <th>Alamat</th>
                     <th>Telp</th>
-                    <th>Departemen</th>
+                    <th>Rekanan</th>
                     <th>Aksi</th>
                   </tr>
                   </thead>
@@ -47,7 +47,7 @@
                             <td>{{$item->nama}}</td>
                             <td>{{$item->alamat}}</td>
                             <td>{{$item->telp}}</td>
-                            <td>{{$item->departemen == null ? '': $item->departemen->nama}}</td>
+                            <td>{{$item->rekanan == null ? '': $item->rekanan->nama}}</td>
                             <td>
                                 <a href="/teknisi/edit/{{$item->id}}" class="btn btn-xs bg-gradient-warning"><i class="fas fa-edit"></i></a>
                                 <a href="/teknisi/delete/{{$item->id}}" class="btn btn-xs bg-gradient-danger" onclick="return confirm('Yakin Menghapus Data Ini?');"><i class="fas fa-trash"></i></a>

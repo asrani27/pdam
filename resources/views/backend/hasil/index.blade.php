@@ -30,7 +30,9 @@
                   <thead>
                   <tr>
                     <th>No</th>
-                    <th>Infrastruktur</th>
+                    <th>Nomor seri</th>
+                    <th>Nomor Alat</th>
+                    <th>Nama Perangkat</th>
                     <th>Jadwal Pemeliharaan</th>
                     <th>Hasil pemeliharaan</th>
                     <th>Hasil penggantian</th>
@@ -47,6 +49,8 @@
                     @foreach ($data as $item)
                         <tr>
                             <td>{{$no++}}</td>
+                            <td>{{$item->jadwal->infrastruktur->nomor_seri}}</td>
+                            <td>{{$item->jadwal->infrastruktur->nomor_alat}}</td>
                             <td>{{$item->jadwal->infrastruktur->nama}}</td>
                             <td>{{\Carbon\Carbon::parse($item->jadwal->tanggal)->format('d M Y')}}</td>
                             <td>{{$item->hasil_pemeliharaan}}</td>

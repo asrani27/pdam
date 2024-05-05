@@ -34,6 +34,12 @@
                       </div>
                     </div>
                     <div class="form-group row">
+                      <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor Alat</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" name="nomor_alat" placeholder="nomor alat">
+                      </div>
+                    </div>
+                    <div class="form-group row">
                       <label for="inputEmail3" class="col-sm-2 col-form-label">Nama infrastruktur</label>
                       <div class="col-sm-10">
                         <input type="text" class="form-control" name="nama" placeholder="Nama">
@@ -64,9 +70,9 @@
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label for="inputEmail3" class="col-sm-2 col-form-label">keterangan</label>
+                      <label for="inputEmail3" class="col-sm-2 col-form-label">Lokasi</label>
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" name="keterangan" placeholder="keterangan">
+                        <input type="text" class="form-control" name="lokasi" placeholder="lokasi">
                       </div>
                     </div>
                     <div class="form-group row">
@@ -92,6 +98,18 @@
                       </div>
                     </div>
                     
+                    <div class="form-group row">
+                      <label for="inputEmail3" class="col-sm-2 col-form-label">Status</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" name="status" placeholder="status">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="inputEmail3" class="col-sm-2 col-form-label">Tahun/Nomor PBL</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" name="tahun" placeholder="Tahun/Nomor PBL">
+                      </div>
+                    </div>
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer">

@@ -31,14 +31,17 @@
                   <tr>
                     <th>No</th>
                     <th>Nomor Seri</th>
+                    <th>Nomor Alat</th>
                     <th>Nama</th>
                     <th>jenis</th>
                     <th>merk</th>
                     <th>satuan</th>
                     <th>jumlah</th>
-                    <th>keterangan</th>
+                    <th>Lokasi</th>
                     <th>Departemen</th>
                     <th>Pengguna</th>
+                    <th>Status</th>
+                    <th>Tahun/Nomor PBL</th>
                     <th>Aksi</th>
                   </tr>
                   </thead>
@@ -50,14 +53,17 @@
                         <tr>
                             <td>{{$no++}}</td>
                             <td>{{$item->nomor_seri}}</td>
+                            <td>{{$item->nomor_alat}}</td>
                             <td>{{$item->nama}}</td>
                             <td>{{$item->jenis}}</td>
                             <td>{{$item->merk}}</td>
                             <td>{{$item->satuan}}</td>
                             <td>{{$item->jumlah}}</td>
-                            <td>{{$item->keterangan}}</td>
+                            <td>{{$item->lokasi}}</td>
                             <td>{{$item->departemen == null ? '': $item->departemen->nama}}</td>
                             <td>{{$item->pengguna == null ? '': $item->pengguna->nama}}</td>
+                            <td>{{$item->status}}</td>
+                            <td>{{$item->tahun}}</td>
                             <td>
                                 <a href="/infrastruktur/edit/{{$item->id}}" class="btn btn-xs bg-gradient-warning"><i class="fas fa-edit"></i></a>
                                 <a href="/infrastruktur/delete/{{$item->id}}" class="btn btn-xs bg-gradient-danger" onclick="return confirm('Yakin Menghapus Data Ini?');"><i class="fas fa-trash"></i></a>

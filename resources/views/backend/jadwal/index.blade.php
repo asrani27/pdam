@@ -30,9 +30,14 @@
                   <thead>
                   <tr>
                     <th>No</th>
-                    <th>Tanggal Jadwal</th>
-                    <th>Infrastruktur</th>
+                    <th>Periode Jadwal</th>
+                    <th>Nama Perangkat</th>
                     <th>Status</th>
+                    <th>Tanggal Jadwal</th>
+                    <th>Nomor Alat</th>
+                    <th>Departemen</th>
+                    <th>Lokasi</th>
+                    <th>Pengguna</th>
                     <th>Aksi</th>
                   </tr>
                   </thead>
@@ -43,9 +48,14 @@
                     @foreach ($data as $item)
                         <tr>
                             <td>{{$no++}}</td>
-                            <td>{{\Carbon\Carbon::parse($item->tanggal)->format('d M Y')}}</td>
+                            <td>{{\Carbon\Carbon::parse($item->tanggal)->format('M Y')}}</td>
                             <td>{{$item->infrastruktur == null ? '':$item->infrastruktur->nama}}</td>
                             <td>{{$item->status}}</td>
+                            <td>{{\Carbon\Carbon::parse($item->tanggal)->format('d M Y')}}</td>
+                            <td>{{$item->infrastruktur == null ? '':$item->infrastruktur->nomor_alat}}</td>
+                            <td>{{$item->infrastruktur == null ? '':$item->infrastruktur->departemen->nama}}</td>
+                            <td>{{$item->infrastruktur == null ? '':$item->infrastruktur->lokasi}}</td>
+                            <td>{{$item->infrastruktur == null ? '':$item->infrastruktur->pengguna->nama}}</td>
                             <td>
                                 <a href="/jadwal/edit/{{$item->id}}" class="btn btn-xs bg-gradient-warning"><i class="fas fa-edit"></i></a>
                                 <a href="/jadwal/delete/{{$item->id}}" class="btn btn-xs bg-gradient-danger" onclick="return confirm('Yakin Menghapus Data Ini?');"><i class="fas fa-trash"></i></a>

@@ -34,7 +34,7 @@
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label for="inputEmail3" class="col-sm-2 col-form-label">infrastruktur</label>
+                      <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Perangkat</label>
                       <div class="col-sm-10">
                         <select name="infrastruktur_id" class="form-control" required>
                           <option value="">-pilih-</option>
