@@ -11,45 +11,7 @@ class JadwalController extends Controller
 {
     public function index()
     {
-        $data = Jadwal::all()->map(function ($item) {
-            if ($item->bulan == '1') {
-                $item->bulan = 'Januari';
-            }
-            if ($item->bulan == '2') {
-                $item->bulan = 'Februri';
-            }
-            if ($item->bulan == '3') {
-                $item->bulan = 'Maret';
-            }
-            if ($item->bulan == '4') {
-                $item->bulan = 'April';
-            }
-            if ($item->bulan == '5') {
-                $item->bulan = 'Mei';
-            }
-            if ($item->bulan == '6') {
-                $item->bulan = 'Juni';
-            }
-            if ($item->bulan == '7') {
-                $item->bulan = 'Juli';
-            }
-            if ($item->bulan == '8') {
-                $item->bulan = 'Agustus';
-            }
-            if ($item->bulan == '9') {
-                $item->bulan = 'September';
-            }
-            if ($item->bulan == '10') {
-                $item->bulan = 'Oktober';
-            }
-            if ($item->bulan == '11') {
-                $item->bulan = 'November';
-            }
-            if ($item->bulan == '12') {
-                $item->bulan = 'Desember';
-            }
-            return $item;
-        });
+        $data = Jadwal::all();
         return view('backend.jadwal.index', compact('data'));
     }
 
@@ -57,6 +19,16 @@ class JadwalController extends Controller
     {
         $infrastruktur = Infrastruktur::get();
         return view('backend.jadwal.add', compact('infrastruktur'));
+    }
+
+
+    public function search()
+    {
+        $bulan = request()->get('bulan');
+        $tahun = request()->get('tahun');
+        $data = Jadwal::where('bulan', $bulan)->where('tahun', $tahun)->get();
+        request()->flash();
+        return view('backend.jadwal.index', compact('data'));
     }
 
     public function save(Request $req)

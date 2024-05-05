@@ -64,6 +64,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/perawatan/edit/{id}', 'PerawatanController@update')->name('editperawatan');
 
     Route::get('/jadwal', 'JadwalController@index');
+    Route::get('/jadwal/search', 'JadwalController@search');
     Route::get('/jadwal/add', 'JadwalController@add');
     Route::get('/jadwal/edit/{id}', 'JadwalController@edit');
     Route::get('/jadwal/delete/{id}', 'JadwalController@delete');

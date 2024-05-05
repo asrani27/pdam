@@ -26,6 +26,42 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
+
+                <form class="form-horizontal" method="get" action="/jadwal/search">
+                  @csrf
+                  
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Periode Jadwal</label>
+                    <div class="col-sm-2">
+                      <select name="bulan" class="form-control" required>
+                        <option value="">-pilih-</option>
+                        <option value="1" {{old('bulan') == '1' ? 'selected':''}}>Januari</option>
+                        <option value="2" {{old('bulan') == '2' ? 'selected':''}}>Februari</option>
+                        <option value="3" {{old('bulan') == '3' ? 'selected':''}}>Maret</option>
+                        <option value="4" {{old('bulan') == '4' ? 'selected':''}}>April</option>
+                        <option value="5" {{old('bulan') == '5' ? 'selected':''}}>Mei</option>
+                        <option value="6" {{old('bulan') == '6' ? 'selected':''}}>Juni</option>
+                        <option value="7" {{old('bulan') == '7' ? 'selected':''}}>Juli</option>
+                        <option value="8" {{old('bulan') == '8' ? 'selected':''}}>Agustus</option>
+                        <option value="9" {{old('bulan') == '9' ? 'selected':''}}>September</option>
+                        <option value="10" {{old('bulan') == '10' ? 'selected':''}}>Oktober</option>
+                        <option value="11" {{old('bulan') == '11' ? 'selected':''}}>November</option>
+                        <option value="12" {{old('bulan') == '12' ? 'selected':''}}>Desember</option>
+                      </select>
+                    </div>
+                    <div class="col-sm-2">
+                      <select name="tahun" class="form-control" required>
+                        <option value="">-pilih-</option>
+                        <option value="2024" {{old('tahun') == '2024' ? 'selected':''}}>2024</option>
+                        <option value="2025" {{old('tahun') == '2025' ? 'selected':''}}>2025</option>
+                      </select>
+                    </div>
+                    <div class="col-sm-2">
+                      <button type="submit" class="btn btn-primary">Cari</button>
+                    </div>
+                  </div>
+                </form>
+                <hr>
                 <table id="example1" class="table table-bordered table-striped table-sm">
                   <thead>
                   <tr>
@@ -48,7 +84,7 @@
                     @foreach ($data as $item)
                         <tr>
                             <td>{{$no++}}</td>
-                            <td>{{$item->bulan}} {{$item->tahun}}</td>
+                            <td>{{nama_bulan($item->bulan)}} {{$item->tahun}}</td>
                             <td>{{$item->infrastruktur == null ? '':$item->infrastruktur->nama}}</td>
                             <td>{{$item->status}}</td>
                             <td>{{\Carbon\Carbon::parse($item->tanggal)->format('d M Y')}}</td>
