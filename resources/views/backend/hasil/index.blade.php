@@ -30,6 +30,7 @@
                   <thead>
                   <tr>
                     <th>No</th>
+                    <th>Periode</th>
                     <th>Nomor seri</th>
                     <th>Nomor Alat</th>
                     <th>Nama Perangkat</th>
@@ -49,6 +50,7 @@
                     @foreach ($data as $item)
                         <tr>
                             <td>{{$no++}}</td>
+                            <td>{{$item->jadwal == null ? '' : nama_bulan($item->jadwal->bulan)}} {{$item->jadwal == null ? '' : $item->jadwal->tahun}}</td>
                             <td>{{$item->jadwal->infrastruktur->nomor_seri}}</td>
                             <td>{{$item->jadwal->infrastruktur->nomor_alat}}</td>
                             <td>{{$item->jadwal->infrastruktur->nama}}</td>
