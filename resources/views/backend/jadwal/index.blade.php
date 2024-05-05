@@ -50,7 +50,7 @@
                       </select>
                     </div>
                     <div class="col-sm-2">
-                      <input type="text" name="tahun" value="{{old('tahun')}}">
+                      <input type="text" name="tahun" class="form-control" value="{{old('tahun')}}">
                     </div>
                     <div class="col-sm-2">
                       <button type="submit" class="btn btn-primary">Cari</button>
