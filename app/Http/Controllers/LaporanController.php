@@ -49,24 +49,28 @@ class LaporanController extends Controller
 
     public function periode(Request $req)
     {
-        $from = $req->mulai;
-        $to = $req->sampai;
+        $bulan = $req->bulan;
+        $tahun = $req->tahun;
 
         if ($req->jenis == '1') {
-            $data = Jadwal::whereBetween('tanggal', [$from, $to])->get();
-            return view('print.jadwal', compact('data', 'from', 'to'));
+            $data = Jadwal::where('bulan', $bulan)->where('tahun', $tahun)->get();
+            return view('print.jadwal', compact('data'));
         }
         if ($req->jenis == '2') {
-            $data = Hasil::whereBetween('created_at', [$from, $to])->get();
-            return view('print.hasil', compact('data', 'from', 'to'));
+            $data = Hasil::all()->map(function ($item) {
+                $item->bulan = $item->jadwal->bulan;
+                $item->tahun = $item->jadwal->tahun;
+                return $item;
+            })->where('bulan', $bulan)->where('tahun', $tahun);
+            return view('print.hasil', compact('data'));
         }
         if ($req->jenis == '3') {
-            $data = SerahTerima::whereBetween('tanggal', [$from, $to])->get();
-            return view('print.serahterima', compact('data', 'from', 'to'));
+            $data = SerahTerima::whereMonth('tanggal', $bulan)->whereYear('tanggal', $tahun)->get();
+            return view('print.serahterima', compact('data'));
         }
         if ($req->jenis == '4') {
-            $data = Pemusnahan::whereBetween('tanggal', [$from, $to])->get();
-            return view('print.pemusnahan', compact('data', 'from', 'to'));
+            $data = Pemusnahan::whereMonth('tanggal', $bulan)->whereYear('tanggal', $tahun)->get();
+            return view('print.pemusnahan', compact('data'));
         }
     }
 }

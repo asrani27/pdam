@@ -50,11 +50,7 @@
                       </select>
                     </div>
                     <div class="col-sm-2">
-                      <select name="tahun" class="form-control" required>
-                        <option value="">-pilih-</option>
-                        <option value="2024" {{old('tahun') == '2024' ? 'selected':''}}>2024</option>
-                        <option value="2025" {{old('tahun') == '2025' ? 'selected':''}}>2025</option>
-                      </select>
+                      <input type="text" name="tahun" value="{{old('tahun')}}">
                     </div>
                     <div class="col-sm-2">
                       <button type="submit" class="btn btn-primary">Cari</button>

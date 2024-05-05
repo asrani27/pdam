@@ -36,6 +36,38 @@
           </div>
         </div>
 
+        {{-- <div class="row">
+          <div class="col-12">
+            <div class="card card-outline card-primary">
+              <div class="card-header">
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <form method="get" action="/laporan/periode" target="_blank">
+                  @csrf
+                  Mulai
+                  <input type="date" name="mulai" class="form-control">
+                  Sampai
+                  <input type="date" name="sampai" class="form-control">
+                  Jenis Laporan
+                  <select name="jenis" class="form-control" required>
+                    <option value="">-pilih-</option>
+                    <option value="1">Jadwal Pemeliharaan</option>
+                    <option value="2">Hasil Pemeliharan</option>
+                    <option value="3">serah terima</option>
+                    <option value="4">pemusnahan</option>
+                  </select>
+                  <br/>
+                  <button type="submit" class="btn btn-primary btn-block">Print</button>
+                  
+                </form>
+              </div>
+              <!-- /.card-body -->
+            </div>
+          </div>
+        </div> --}}
+
+
         <div class="row">
           <div class="col-12">
             <div class="card card-outline card-primary">
@@ -45,10 +77,24 @@
               <div class="card-body">
                 <form method="get" action="/laporan/periode" target="_blank">
                   @csrf
-                  Mulai
-                  <input type="date" name="mulai" class="form-control">
-                  Sampai
-                  <input type="date" name="sampai" class="form-control">
+                  Bulan
+                  <select name="bulan" class="form-control" required>
+                    <option value="">-pilih-</option>
+                    <option value="1" {{old('bulan') == '1' ? 'selected':''}}>Januari</option>
+                    <option value="2" {{old('bulan') == '2' ? 'selected':''}}>Februari</option>
+                    <option value="3" {{old('bulan') == '3' ? 'selected':''}}>Maret</option>
+                    <option value="4" {{old('bulan') == '4' ? 'selected':''}}>April</option>
+                    <option value="5" {{old('bulan') == '5' ? 'selected':''}}>Mei</option>
+                    <option value="6" {{old('bulan') == '6' ? 'selected':''}}>Juni</option>
+                    <option value="7" {{old('bulan') == '7' ? 'selected':''}}>Juli</option>
+                    <option value="8" {{old('bulan') == '8' ? 'selected':''}}>Agustus</option>
+                    <option value="9" {{old('bulan') == '9' ? 'selected':''}}>September</option>
+                    <option value="10" {{old('bulan') == '10' ? 'selected':''}}>Oktober</option>
+                    <option value="11" {{old('bulan') == '11' ? 'selected':''}}>November</option>
+                    <option value="12" {{old('bulan') == '12' ? 'selected':''}}>Desember</option>
+                  </select>
+                  Tahun
+                  <input type="text" name="tahun" class="form-control">
                   Jenis Laporan
                   <select name="jenis" class="form-control" required>
                     <option value="">-pilih-</option>
