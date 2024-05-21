@@ -11,7 +11,7 @@
  Target Server Version : 50739 (5.7.39)
  File Encoding         : 65001
 
- Date: 20/04/2024 19:28:14
+ Date: 21/05/2024 09:32:29
 */
 
 SET NAMES utf8mb4;
@@ -77,6 +77,7 @@ DROP TABLE IF EXISTS `infrastruktur`;
 CREATE TABLE `infrastruktur` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `nomor_seri` varchar(255) DEFAULT NULL,
+  `nomor_alat` varchar(255) DEFAULT NULL,
   `nama` varchar(255) DEFAULT NULL,
   `jenis` varchar(255) DEFAULT NULL,
   `merk` varchar(255) DEFAULT NULL,
@@ -87,16 +88,23 @@ CREATE TABLE `infrastruktur` (
   `pengguna_id` int(11) unsigned DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `lokasi` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `tahun` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `dep` (`departemen_id`),
+  KEY `peng` (`pengguna_id`),
+  CONSTRAINT `dep` FOREIGN KEY (`departemen_id`) REFERENCES `departemen` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `peng` FOREIGN KEY (`pengguna_id`) REFERENCES `pengguna` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of infrastruktur
 -- ----------------------------
 BEGIN;
-INSERT INTO `infrastruktur` (`id`, `nomor_seri`, `nama`, `jenis`, `merk`, `satuan`, `jumlah`, `keterangan`, `departemen_id`, `pengguna_id`, `created_at`, `updated_at`) VALUES (1, '5678975', 'Server Dell', 'server', 'Dell', 'buah', '1', '-', 2, 1, '2024-04-20 04:35:17', '2024-04-20 07:49:43');
-INSERT INTO `infrastruktur` (`id`, `nomor_seri`, `nama`, `jenis`, `merk`, `satuan`, `jumlah`, `keterangan`, `departemen_id`, `pengguna_id`, `created_at`, `updated_at`) VALUES (2, '4543213435', 'Komputer AIO Lenovo', 'komputer', 'Lenovo', 'buah', '1', '-', 2, 3, '2024-04-20 07:50:08', '2024-04-20 07:50:08');
-INSERT INTO `infrastruktur` (`id`, `nomor_seri`, `nama`, `jenis`, `merk`, `satuan`, `jumlah`, `keterangan`, `departemen_id`, `pengguna_id`, `created_at`, `updated_at`) VALUES (3, '45678998778', 'Printer EPSON L3510', 'printer', 'EPSOn', 'buah', '1', 'baru', 4, 2, '2024-04-20 07:50:49', '2024-04-20 07:50:49');
+INSERT INTO `infrastruktur` (`id`, `nomor_seri`, `nomor_alat`, `nama`, `jenis`, `merk`, `satuan`, `jumlah`, `keterangan`, `departemen_id`, `pengguna_id`, `created_at`, `updated_at`, `lokasi`, `status`, `tahun`) VALUES (1, '5678975', 'ALT123', 'Server Dell', 'server', 'Dell', 'buah', '1', '-', 2, 1, '2024-04-20 04:35:17', '2024-05-04 23:11:37', 'RAK 1', 'f', 'asd');
+INSERT INTO `infrastruktur` (`id`, `nomor_seri`, `nomor_alat`, `nama`, `jenis`, `merk`, `satuan`, `jumlah`, `keterangan`, `departemen_id`, `pengguna_id`, `created_at`, `updated_at`, `lokasi`, `status`, `tahun`) VALUES (2, '4543213435', NULL, 'Komputer AIO Lenovo', 'komputer', 'Lenovo', 'buah', '1', '-', 2, 3, '2024-04-20 07:50:08', '2024-04-20 07:50:08', NULL, NULL, NULL);
+INSERT INTO `infrastruktur` (`id`, `nomor_seri`, `nomor_alat`, `nama`, `jenis`, `merk`, `satuan`, `jumlah`, `keterangan`, `departemen_id`, `pengguna_id`, `created_at`, `updated_at`, `lokasi`, `status`, `tahun`) VALUES (3, '45678998778', NULL, 'Printer EPSON L3510', 'printer', 'EPSOn', 'buah', '1', 'baru', 4, 2, '2024-04-20 07:50:49', '2024-04-20 07:50:49', NULL, NULL, NULL);
 COMMIT;
 
 -- ----------------------------
@@ -110,16 +118,21 @@ CREATE TABLE `jadwal` (
   `status` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+  `bulan` varchar(255) DEFAULT NULL,
+  `tahun` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `asdasdfasds` (`infrastruktur_id`),
+  CONSTRAINT `asdasdfasds` FOREIGN KEY (`infrastruktur_id`) REFERENCES `infrastruktur` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of jadwal
 -- ----------------------------
 BEGIN;
-INSERT INTO `jadwal` (`id`, `infrastruktur_id`, `tanggal`, `status`, `created_at`, `updated_at`) VALUES (2, 1, '2024-04-20', 'terjadwal', '2024-04-20 06:41:29', '2024-04-20 06:41:29');
-INSERT INTO `jadwal` (`id`, `infrastruktur_id`, `tanggal`, `status`, `created_at`, `updated_at`) VALUES (3, 2, '2024-04-26', 'terjadwal', '2024-04-20 07:51:10', '2024-04-20 07:51:10');
-INSERT INTO `jadwal` (`id`, `infrastruktur_id`, `tanggal`, `status`, `created_at`, `updated_at`) VALUES (4, 3, '2024-04-30', 'terjadwal', '2024-04-20 07:51:20', '2024-04-20 07:51:20');
+INSERT INTO `jadwal` (`id`, `infrastruktur_id`, `tanggal`, `status`, `created_at`, `updated_at`, `bulan`, `tahun`) VALUES (2, 1, '2024-04-20', 'terjadwal', '2024-04-20 06:41:29', '2024-05-05 08:58:41', '2', '2024');
+INSERT INTO `jadwal` (`id`, `infrastruktur_id`, `tanggal`, `status`, `created_at`, `updated_at`, `bulan`, `tahun`) VALUES (3, 2, '2024-04-26', 'terjadwal', '2024-04-20 07:51:10', '2024-04-20 07:51:10', NULL, NULL);
+INSERT INTO `jadwal` (`id`, `infrastruktur_id`, `tanggal`, `status`, `created_at`, `updated_at`, `bulan`, `tahun`) VALUES (4, 3, '2024-04-30', 'terjadwal', '2024-04-20 07:51:20', '2024-04-20 07:51:20', NULL, NULL);
+INSERT INTO `jadwal` (`id`, `infrastruktur_id`, `tanggal`, `status`, `created_at`, `updated_at`, `bulan`, `tahun`) VALUES (5, 1, '2024-05-06', 'terjadwal', '2024-05-05 08:38:55', '2024-05-05 08:38:55', NULL, NULL);
 COMMIT;
 
 -- ----------------------------
@@ -128,13 +141,15 @@ COMMIT;
 DROP TABLE IF EXISTS `pemusnahan`;
 CREATE TABLE `pemusnahan` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `infrastruktur_id` int(11) DEFAULT NULL,
+  `infrastruktur_id` int(11) unsigned DEFAULT NULL,
   `nomor` varchar(255) DEFAULT NULL,
   `tanggal` date DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `petugas` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `inf` (`infrastruktur_id`),
+  CONSTRAINT `inf` FOREIGN KEY (`infrastruktur_id`) REFERENCES `infrastruktur` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -238,13 +253,15 @@ COMMIT;
 DROP TABLE IF EXISTS `serah_terima`;
 CREATE TABLE `serah_terima` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `infrastruktur_id` int(11) DEFAULT NULL,
+  `infrastruktur_id` int(11) unsigned DEFAULT NULL,
   `nomor` varchar(255) DEFAULT NULL,
   `tanggal` date DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `penerima` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `sfgdf` (`infrastruktur_id`),
+  CONSTRAINT `sfgdf` FOREIGN KEY (`infrastruktur_id`) REFERENCES `infrastruktur` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -265,7 +282,7 @@ CREATE TABLE `teknisi` (
   `telp` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `departemen_id` int(11) unsigned DEFAULT NULL,
+  `rekanan_id` int(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
@@ -273,10 +290,10 @@ CREATE TABLE `teknisi` (
 -- Records of teknisi
 -- ----------------------------
 BEGIN;
-INSERT INTO `teknisi` (`id`, `nama`, `alamat`, `telp`, `created_at`, `updated_at`, `departemen_id`) VALUES (2, 'adi', 'jl S Lulut Komple Graha', '09876543', '2024-04-20 06:46:48', '2024-04-20 07:47:43', 4);
-INSERT INTO `teknisi` (`id`, `nama`, `alamat`, `telp`, `created_at`, `updated_at`, `departemen_id`) VALUES (3, 'Rendra Hidayat', 'Jl A Yani km 7', '087757789239', '2024-04-20 07:47:02', '2024-04-20 07:47:02', 1);
-INSERT INTO `teknisi` (`id`, `nama`, `alamat`, `telp`, `created_at`, `updated_at`, `departemen_id`) VALUES (4, 'Rifky Santono', 'Jl Pramuka Km 6 GG nanas', '0899213773774', '2024-04-20 07:47:37', '2024-04-20 07:47:37', 2);
-INSERT INTO `teknisi` (`id`, `nama`, `alamat`, `telp`, `created_at`, `updated_at`, `departemen_id`) VALUES (5, 'Tomy Harda', 'Jl Kayu tangi IIq', '0827347235671', '2024-04-20 07:48:04', '2024-04-20 07:48:04', 5);
+INSERT INTO `teknisi` (`id`, `nama`, `alamat`, `telp`, `created_at`, `updated_at`, `rekanan_id`) VALUES (2, 'adi', 'jl S Lulut Komple Graha', '09876543', '2024-04-20 06:46:48', '2024-05-01 07:32:13', 3);
+INSERT INTO `teknisi` (`id`, `nama`, `alamat`, `telp`, `created_at`, `updated_at`, `rekanan_id`) VALUES (3, 'Rendra Hidayat', 'Jl A Yani km 7', '087757789239', '2024-04-20 07:47:02', '2024-04-20 07:47:02', 1);
+INSERT INTO `teknisi` (`id`, `nama`, `alamat`, `telp`, `created_at`, `updated_at`, `rekanan_id`) VALUES (4, 'Rifky Santono', 'Jl Pramuka Km 6 GG nanas', '0899213773774', '2024-04-20 07:47:37', '2024-04-20 07:47:37', 2);
+INSERT INTO `teknisi` (`id`, `nama`, `alamat`, `telp`, `created_at`, `updated_at`, `rekanan_id`) VALUES (5, 'Tomy Harda', 'Jl Kayu tangi IIq', '0827347235671', '2024-04-20 07:48:04', '2024-04-20 07:48:04', 5);
 COMMIT;
 
 -- ----------------------------
@@ -306,7 +323,7 @@ CREATE TABLE `users` (
 -- Records of users
 -- ----------------------------
 BEGIN;
-INSERT INTO `users` (`id`, `name`, `email`, `username`, `email_verified_at`, `password`, `password_superadmin`, `remember_token`, `created_at`, `updated_at`, `api_token`, `last_session`, `change_password`) VALUES (1, 'superadmin', NULL, 'superadmin', '2024-04-20 18:38:41', '$2y$10$3k7FLC2TkBzYnumOyiv7BOmTOsTzzJHb3/p4aKcBUoGonp4Jij0Wu', NULL, 'enviYX9s7XTf7uf6uNRdCZ6PM8tE9JcTisTLabH925Bsif4PskGeR8sX1u0Y', '2024-04-20 18:38:41', '2024-04-20 18:38:41', NULL, NULL, 0);
+INSERT INTO `users` (`id`, `name`, `email`, `username`, `email_verified_at`, `password`, `password_superadmin`, `remember_token`, `created_at`, `updated_at`, `api_token`, `last_session`, `change_password`) VALUES (1, 'superadmin', NULL, 'superadmin', '2024-05-05 17:14:28', '$2y$10$3k7FLC2TkBzYnumOyiv7BOmTOsTzzJHb3/p4aKcBUoGonp4Jij0Wu', NULL, 'zHTuKjqOn3YRUWkm22JR2TXgRQxwL17vxzioycMae1oxtteWDVkCxIt5LyWq', '2024-05-05 17:14:28', '2024-05-05 17:14:28', NULL, NULL, 0);
 INSERT INTO `users` (`id`, `name`, `email`, `username`, `email_verified_at`, `password`, `password_superadmin`, `remember_token`, `created_at`, `updated_at`, `api_token`, `last_session`, `change_password`) VALUES (5, 'adi', NULL, 'adi', '2024-04-20 11:07:17', '$2y$10$sxXBzHYpymU8.AMoywsDh.EzC5P9fHnIr2POgiTkFWp11kQQBJQaG', NULL, NULL, '2024-04-20 03:07:17', '2024-04-20 03:07:17', NULL, NULL, 0);
 COMMIT;
 
