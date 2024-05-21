@@ -51,8 +51,8 @@
                         <tr>
                             <td>{{$no++}}</td>
                             <td>{{$item->jadwal == null ? '' : nama_bulan($item->jadwal->bulan)}} {{$item->jadwal == null ? '' : $item->jadwal->tahun}}</td>
-                            <td>{{$item->jadwal->infrastruktur->nomor_seri}}</td>
-                            <td>{{$item->jadwal->infrastruktur->nomor_alat}}</td>
+                            <td>{{$item->jadwal->infrastruktur == null ? ''  : $item->jadwal->infrastruktur->nomor_seri}}</td>
+                            <td>{{$item->jadwal->infrastruktur == null ? ''  : $item->jadwal->infrastruktur->nomor_alat}}</td>
                             <td>{{$item->jadwal->infrastruktur->nama}}</td>
                             <td>{{\Carbon\Carbon::parse($item->jadwal->tanggal)->format('d M Y')}}</td>
                             <td>{{$item->hasil_pemeliharaan}}</td>
