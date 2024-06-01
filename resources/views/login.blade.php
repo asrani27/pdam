@@ -16,7 +16,7 @@
 
 		<div class="wrapper" style="background-image: url('/formlogin/3.jpg');background-size:cover">
 			<div class="inner">
-				<img src="/formlogin/images/image-1.png" alt="" class="image-1">
+				<img src="/formlogin/images/image-.png" alt="" class="image-1">
 				<form autocomplete="off" method="post" action="/login">
 					@csrf
 					<h3>LOGIN SYSTEM</h3>
@@ -33,7 +33,7 @@
 						<span>LOGIN</span>
 					</button>
 				</form>
-				<img src="/formlogin/images/image-2.png" alt="" class="image-2">
+				<img src="/formlogin/images/image-.png" alt="" class="image-2">
 			</div>
 			
 		</div>
