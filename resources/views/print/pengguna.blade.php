@@ -76,14 +76,14 @@
         </table>
         <table width="100%">
           <tr>
-            <td width="50%" style="text-align: center"><br/>Pimpinan
+            <td width="50%" style="text-align: center"><br/>Mengetahui, <br/> Manager IT
             <br/><br/><br/><br/>
-            (.................)
+            Muhammad Hadian Noor, S.Kom
             </td>
             <td width="50%" style="text-align: center">Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br/>
-              Admin
+              Dibuat Oleh<br/> Spv. Infrastruktur IT dan PLC Scada
               <br/><br/><br/><br/>
-              (.................)
+              Khairul Irsyadi, ST
             </td>
           </tr>
         </table>
